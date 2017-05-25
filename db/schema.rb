@@ -10,11 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501173800) do
+ActiveRecord::Schema.define(version: 20170523172657) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name",                             null: false
     t.string   "avatar"
+    t.integer  "position"
+    t.integer  "status",     limit: 1, default: 0, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.string   "name",                             null: false
+    t.string   "title",                            null: false
+    t.string   "images"
+    t.integer  "position"
+    t.integer  "status",     limit: 1, default: 0, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  create_table "trees", force: :cascade do |t|
+    t.string   "name",                             null: false
+    t.string   "title",                            null: false
+    t.integer  "kind",       limit: 1, default: 0, null: false
+    t.string   "pictures"
     t.integer  "position"
     t.integer  "status",     limit: 1, default: 0, null: false
     t.datetime "created_at",                       null: false

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
         root 'panel#index'                                  # admin_root_path
         resources :users
         resources :accounts
+        resources :galleries do
+          resources :images, :only => [:create, :destroy]
+        end
         # 1: Add new admin resources before this line
       end
 
@@ -37,6 +40,9 @@ Rails.application.routes.draw do
       root 'panel#index'                                  # admin_root_path
       resources :users
       resources :accounts
+      resources :galleries do
+        resources :images, :only => [:create, :destroy]
+      end
       # 2: Add new admin resources before this line
     end
 

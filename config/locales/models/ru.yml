@@ -1,6 +1,9 @@
 ru:
   activerecord:
     models:
+      account:
+        one:                    Заказчик
+        other:                  Заказчики
       user:
         one:                    Пользователь
         other:                  Пользователи
@@ -9,6 +12,11 @@ ru:
         other:                  Товары
 
     attributes:
+      account:
+        name:                   Имя
+        avatar:                 Аватарка
+        status:                 Состояние
+        position:               Положение
       user:
         role:                   Роль
         last_name:              Фамилия

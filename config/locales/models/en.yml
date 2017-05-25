@@ -1,6 +1,9 @@
 en:
   activerecord:
     models:
+      account:
+        one:                    Account
+        other:                  Accounts
       user:
         one:                    User
         other:                  Users
@@ -9,6 +12,11 @@ en:
         other:                  Products
 
     attributes:
+      account:
+        name:                   Name
+        avatar:                 Avatar
+        status:                 Status
+        position:               Position
       user:
         role:                   Role
         last_name:              Last Name
