@@ -16,6 +16,7 @@ Rails.application.routes.draw do
         resources :galleries do
           resources :images, :only => [:create, :destroy]
         end
+        resources :resumes, only: [:index, :new, :create, :destroy]
         # 1: Add new admin resources before this line
       end
 
@@ -43,6 +44,7 @@ Rails.application.routes.draw do
       resources :galleries do
         resources :images, :only => [:create, :destroy]
       end
+      resources :resumes, only: [:index, :new, :create, :destroy]
       # 2: Add new admin resources before this line
     end
 
