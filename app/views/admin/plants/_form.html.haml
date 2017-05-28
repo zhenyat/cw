@@ -1,0 +1,34 @@
+.row
+  .col-md-6
+    = simple_form_for([:admin, @plant], html: {multipart: true}) do |f|
+      = f.error_notification message: t('messages.error_notification')
+
+      .form-inputs
+        = f.input :name
+        = f.input :title
+        = f.input :position, as: :hidden
+
+        = f.input :status, default: 1
+        /= render 'admin/shared/status_buttons', f: f
+
+      - if @plant.pictures.present?
+        .input-group-addon
+          %h3= "Pictures"
+          = f.simple_fields_for :pictures do |p|
+            .input-group-addon
+              = p.input :title
+              = f.input :position, as: :hidden
+              = p.input :content
+              = p.input :status
+              = image_tag p.object.photo.thumb.url if p.object.photo?
+              %br
+              %br
+              = link_to t('actions.show'), admin_picture_path(p.object.id), class: 'btn btn-primary btn-xs'
+              = link_to t('actions.edit'), edit_admin_picture_path(p.object.id), class: 'btn btn-warning btn-xs'
+      %br
+      .form_actions
+        .row
+          .col-md-3
+            = f.submit t('actions.save'), class: 'btn btn-primary btn-block'
+          .col-md-3
+            = link_to t('actions.back'), admin_plants_path, class: 'btn btn-default btn-block'
