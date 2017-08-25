@@ -4,13 +4,13 @@ class Admin::ImagesController < ApplicationController
   def create
     add_more_images(images_params[:images])
     flash[:error] = "Failed uploading images" unless @gallery.save
-    redirect_to :back
+    redirect_back(fallback_location: admin_root_path)
   end
   
   def destroy
     remove_image_at_index(params[:id].to_i)
     flash[:error] = "Failed deleting image" unless @gallery.save
-    redirect_to :back
+    redirect_back(fallback_location: admin_root_path)
   end
 
   private

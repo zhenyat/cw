@@ -13,7 +13,7 @@ class Admin::BaseController < ApplicationController
 
   protect_from_forgery with: :exception
 
-  before_filter :check_login
+  before_action :check_login
   before_action :current_user
   after_action  :verify_authorized, except: :index
 #  after_action  :verify_policy_scoped, only: :index
